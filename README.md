@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   *** Cuddl'r *** 
   
   What problem are you trying to solve?
@@ -61,3 +62,9 @@
 
 
 
+=======
+cuddlme
+=======
+
+Project 1 
+>>>>>>> 4b066d72bd2ca069382a70fdeb406c3456d18cdd
