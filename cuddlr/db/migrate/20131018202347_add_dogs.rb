@@ -6,7 +6,7 @@ class AddDogs < ActiveRecord::Migration
       t.string :gender, null: false
       t.string :age, null: false
       t.string :preference, null: false 
-      t.string :url  
+      t.string :url   
     end
   end
 end

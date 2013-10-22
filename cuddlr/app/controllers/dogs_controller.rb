@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  
+  before_action :current_user
   def index
     @dogs = Dog.all
     render :index

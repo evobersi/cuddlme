@@ -1,21 +1,23 @@
 <%= form_for @dog do |f| %>
   <li><%= f.label :name %><li>
   <li><%= f.text_field :name %></li>
+
   <li><%= f.label :breed %></li>
   <li><%= f.text_field :breed %></li>
+
   <li><%= f.label :gender %></li>
-  <li><%= f.text_field :gender %></li>
+  <li><%= f.select :preference, options_for_select(["male","female"], "male") %></li>
+
   <li><%= f.label :age %></li>
-  <li><%= f.text_field :age %></li>
+  <li><%= f.select :age, options_for_select((1..15).to_a, 1) %></li>
+
   <li><%= f.label :preference %></li>
-  <li><%= f.text_field :preference %></li>
-      <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
+  <li><%= f.select :preference, options_for_select(["male","female"], "female") %></li>
+
+  <%= f.hidden_field :user_id, value: "#{session[:user_id]}" %>
   <li><%= f.submit %></li>
 
 <% end %>
 <br>
-
-<%= link_to "View all dogs", dogs_path %>
-
 
 

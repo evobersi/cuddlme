@@ -2,8 +2,10 @@
 <ul>
   <li>Name: <%= @dog.name %></li>
   <li>Age: <%= @dog.age %></li>
+  <li>Breed: <%= @dog.breed %></li>
   <li>Interested in: <%= @dog.preference %></li>
   
 </ul>
 
 <%= link_to "Back", dogs_path %>
+<%= link_to "Add more dogs", new_dog_path %>

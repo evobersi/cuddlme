@@ -15,6 +15,9 @@
   <%= f.label :password_confirmation %>
   <%= f.password_field :password_confirmation %>
 
+  <%= f.label :zipcode %>
+  <%= f.text_field :zipcode %>
+
   <%= f.hidden_field :id, value: "#{session[:user_id]}" %>
 
   <%= f.submit %>
