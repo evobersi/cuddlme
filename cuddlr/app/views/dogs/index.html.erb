@@ -1,12 +1,10 @@
-# session on welcome page
+<h1>Doggy Directory:</h1>
+<ul>
+  <% @dogs.each do |dog| %> 
+  <li><%= link_to dog.name, dog_path(dog) %></li>
+  <% end %>
+  </ul>
 
-<%= form_tag session_path, :method => :post do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
 
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
-  <%= submit_tag "Login" %>
-<% end %>
+<%= link_to "Create a new profile", new_dog_path %>
 

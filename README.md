@@ -43,8 +43,8 @@
 
   As a Creator, I want users to interact with eachother online so they can meet in person.
   As a Creator, I would like to bring pure bred dog owners together to so that they can breed. 
-  As a User, I want an easy and fun way to search for and contact dog owners.
-  As a User, I want to search by keyword for dogs that are relevant to me.
+  As a User, I want an easy and fun way to search for and contact dog owners so I don't have to find them myself. 
+  As a User, I want to search by keyword for dogs that are relevant to me so that I can save time searching through the database. 
   As a User, I would like to see which five parks are closest to my zipcode so that I can plan a date.
 
   

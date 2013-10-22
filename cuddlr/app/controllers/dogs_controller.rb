@@ -1,14 +1,31 @@
 class DogsController < ApplicationController
-  def 
-  end
   
+  def index
+    @dogs = Dog.all
+    render :index
+  end
+
+  def new
+    @dog = Dog.new
+  end
+
   def create
-    # authenticate that user/pass combo is legit
-    user = User.find_by(email: params[:email])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user) 
+    @dog = Dog.new(dog_params)
+    if @dog.save
+      redirect_to dogs_path
     else
-      redirect_to new_session_path
+      render :new
     end
+  end
+
+
+  def show
+    @dog = Dog.find(params[:id])
+  end
+
+private
+
+  def dog_params
+    params.require(:dog).permit(:name, :age, :breed, :gender, :preference, :user_id)
+  end
 end

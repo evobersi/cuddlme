@@ -1,0 +1,6 @@
+<h1><%= @user.email %></h1>
+
+<%= link_to "View directory", dogs_path %>
+<%= link_to "Add a dog", new_dog_path%>
+<%= link_to "Edit", edit_user_path(@user) %> |
+<%= link_to "Destroy", user_path(@user), :method => :delete %>
