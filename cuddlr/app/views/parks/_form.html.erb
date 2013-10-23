@@ -1,0 +1,18 @@
+<%= form_for @park do |f| %>
+  <li><%= f.label :name %></li>
+  <li><%= f.text_field :name %></li>
+
+  <li><%= f.label :address %><li>
+  <li><%= f.text_field :address %></li>
+
+  <li><%= f.label :latitude %></li>
+  <li><%= f.text_field :latitude %></li>
+
+  <li><%= f.label :longitude %></li>
+  <li><%= f.text_field :longitude %></li>
+
+  <li><%= f.submit %></li>
+
+<% end %>
+
+

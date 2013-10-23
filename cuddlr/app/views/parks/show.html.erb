@@ -1,0 +1,11 @@
+<h1><li> Name: <%= @park.name %></li></h1>
+    <li> Address: <%=@park.address %></li>
+    <li> Latitude: <%= @park.latitude %></li>
+    <li> Longitude: <%= @park.longitude %></li>
+
+<ul>
+<% for park in @park.nearbys(10) %> 
+<li><%= link_to park.address, park %> (<%= park.distance.round(2) %> miles)</li>
+<% end %>
+</ul>
+

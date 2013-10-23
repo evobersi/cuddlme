@@ -1,0 +1,8 @@
+
+<% @parks.each do |p| %> 
+  <li><%= link_to p.name, park_path(p) %></li>
+  <% end %>
+
+
+<%= link_to "New Park", new_park_path %>
+

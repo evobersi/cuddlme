@@ -1,7 +1,8 @@
 Cuddlr::Application.routes.draw do
 resources :dogs, only: [:index, :create, :show, :new]
 resources :users, except: [:index]
-resource :session, only: [:new, :create, :destroy]
+resources :session, only: [:new, :create, :destroy]
+resources :parks 
 
 
 

@@ -4,9 +4,7 @@ gem 'pry-rails'
 
 gem 'bcrypt-ruby'
 
-gem 'httparty'
-
-gem 'json'
+gem 'geocoder'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
