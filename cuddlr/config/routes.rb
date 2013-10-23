@@ -3,6 +3,6 @@ Cuddlr::Application.routes.draw do
   resources :users, except: [:index] do
     resources :dogs, only: [:index], controller: 'users/dogs'
   end
-  resources :session, only: [:new, :create, :destroy]
+  resource :session, only: [:new, :create, :destroy]
   resources :parks 
 end
