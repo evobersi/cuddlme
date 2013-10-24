@@ -1,11 +1,12 @@
 <h1>My Dogs: </h1>
 <ul><% @user = User.find(current_user) %></ul> 
 <li><% @user.dogs.each do |dog| %></li>
-<li><%=  dog.name %> </li>
+<li><%=  dog.name %> 
+  <br>
+  <%= link_to "Take to park", parks_path %>
+ </li>
 <% end %>
 
-
-<br>
 
 <%= link_to "All dogs", dogs_path %>
 <%= link_to "Add a dog", new_dog_path%>

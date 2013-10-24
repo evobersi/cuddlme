@@ -3,6 +3,9 @@ class UsersController < ApplicationController
   before_action :authenticated!, :set_user, :authorized!, only: [:destroy, :edit, :update]
   before_action :authenticated!, :set_user, only: [:show]
 
+  def index
+  end
+
   def new
     @user = User.new
     render :new
@@ -44,6 +47,10 @@ class UsersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def visit_park
+    User.find(@current_user.id).parks << parks 
   end
 
   private
