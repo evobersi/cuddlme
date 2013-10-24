@@ -4,20 +4,8 @@ class ParksController < ApplicationController
     render :index
   end
 
-  def new
-    @park = Park.new
-  end
-
-  def create
-    @park = Park.new(park_params)
-    if @park.save
-      redirect_to park_path(@park)
-    else
-      render :new
-    end
-  end
-  
   def show
+    @user = User.find(session[:user_id])
     @park = Park.find(params[:id])
     render :show
   end
@@ -25,6 +13,6 @@ class ParksController < ApplicationController
   private
 
   def park_params
-    params.require(:park).permit(:name, :address, :longitude, :latitude)
+    params.require(:park).permit(:address, :longitude, :latitude)
   end
 end

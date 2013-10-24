@@ -4,5 +4,5 @@ Cuddlr::Application.routes.draw do
     resources :dogs, only: [:index], controller: 'users/dogs'
   end
   resource :session, only: [:new, :create, :destroy]
-  resources :parks 
+  resources :parks
 end

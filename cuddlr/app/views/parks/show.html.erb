@@ -1,11 +1,15 @@
-<h1><li> Name: <%= @park.name %></li></h1>
-    <li> Address: <%=@park.address %></li>
-    <li> Latitude: <%= @park.latitude %></li>
-    <li> Longitude: <%= @park.longitude %></li>
+      
+<p>This park is <%= @park.distance_to("#{@user.zipcode}").round(2) %> miles away. </p>
 
-<ul>
-<% for park in @park.nearbys(10) %> 
-<li><%= link_to park.address, park %> (<%= park.distance.round(2) %> miles)</li>
-<% end %>
-</ul>
+    <li> Name: <%= @park.name %></li>
+    <li> Borough: <%= @park.borough %></li>
+    <li> Address: <%= @park.address %></li>
+    <br>
+    <li> Nearest parks: </li>
+     <ul> 
+      <% @park.nearbys(1).each do |park| %>
+        <li><%= park.name %></li>
+        <% end %>
+      </ul>
 
+    

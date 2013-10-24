@@ -1,0 +1,22 @@
+<h1>Wanna Cuddl? </h1>
+<h2>User Profile: </h2>
+ <h3><%= @user.email %></h3>
+<ul>
+  <li>Zipcode: <%= @user.zipcode %></li>
+</ul>
+
+<h3>Dogs: </h3>
+<ul>
+  <% @user.dogs.each do |dog| %>
+  <li>Name: <%=  dog.name %></li>
+  <li>Breed: <%= dog.breed %></li>
+  <li>Gender: <%= dog.gender %></li>
+  <li>Likes: <%= dog.preference %></li>
+<% end %>
+</ul>
+
+<h3>Nearby Parks:</h3>
+<%= %>
+
+
+

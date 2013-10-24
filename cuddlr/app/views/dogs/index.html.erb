@@ -1,9 +1,10 @@
 <h1>Doggy Directory:</h1>
 <ul>
   <% @dogs.each do |dog| %> 
-  <li><%= link_to dog.name, dog_path(@park) %></li>
+  <li><%= link_to dog.name, dog_path(dog) %></li>
   <% end %>
   </ul>
 
+<br>
 <%= link_to "Create a new profile", new_dog_path %>
 <%= link_to "Home", user_path(current_user) %>

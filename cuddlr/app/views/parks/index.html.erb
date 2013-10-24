@@ -1,8 +1,9 @@
-
+<h1>All Parks</h1>
 <% @parks.each do |p| %> 
   <li><%= link_to p.name, park_path(p) %></li>
   <% end %>
 
 
 <%= link_to "New Park", new_park_path %>
+<%= link_to "All dogs", dogs_path %>
 

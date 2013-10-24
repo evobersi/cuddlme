@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
-  before_action :authenticated!, :set_user, :authorized!, except: [:new, :create]
+  before_action :authenticated!, :set_user, :authorized!, only: [:destroy, :edit, :update]
+  before_action :authenticated!, :set_user, only: [:show]
 
   def new
     @user = User.new
@@ -19,6 +20,11 @@ class UsersController < ApplicationController
   end
 
   def show
+    if @user.id == session[:user_id] 
+      render :show 
+    else 
+      render :profile
+    end
   end
 
   def edit
