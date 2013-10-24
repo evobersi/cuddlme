@@ -1,5 +1,4 @@
 class DogsController < ApplicationController
-  before_action :current_user
 
   def index
     @dogs = Dog.all
@@ -12,7 +11,7 @@ class DogsController < ApplicationController
 
   def create
     @dog = Dog.new(dog_params)
-   !! @dog.user_id = @current_user
+    @dog.user = current_user
     if @dog.save
       redirect_to dogs_path
     else

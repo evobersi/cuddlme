@@ -8,7 +8,7 @@
   <li><%= f.text_field :breed %></li>
 
   <li><%= f.label :gender %></li>
-  <li><%= f.select :preference, options_for_select(["male","female"], "male") %></li>
+  <li><%= f.select :gender, options_for_select(["male","female"], "male") %></li>
 
   <li><%= f.label :age %></li>
   <li><%= f.select :age, options_for_select((1..15).to_a, 1) %></li>
