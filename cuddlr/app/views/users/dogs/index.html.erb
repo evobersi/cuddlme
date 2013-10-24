@@ -1,7 +1,7 @@
-<h1>Dogs: </h1>
+<h1>My Dogs: </h1>
 <ul><% @user = User.find(current_user) %></ul> 
 <li><% @user.dogs.each do |dog| %></li>
-<li><%=  dog.name %> -- Invite on a date</li>
+<li><%=  dog.name %> </li>
 <% end %>
 
 
