@@ -1,11 +1,13 @@
+<%= link_to "Home", user_path(current_user) %>
+<%= link_to "Add more dogs", new_dog_path %>
+
 <h1>Doggy Directory:</h1>
-<ul>
-  <% @dogs.each do |dog| %> 
-  <li><%= link_to dog.name, dog_path(dog) %></li>
+<p><em>Click on a dog to learn more.</em></p>
+
+  <% @dogs.each do |dog| %> <br>
+  <%= link_to dog.name, dog_path(dog), class: "dog-links"%>
 
   <% end %>
-  </ul>
 
-<br>
-<%= link_to "Create a new profile", new_dog_path %>
-<%= link_to "Home", user_path(current_user) %>
+
+

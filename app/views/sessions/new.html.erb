@@ -1,12 +1,9 @@
-<h1>Log In:</h1>
+<%= link_to "Home", new_user_path %>
+
+<div> <h1>Log In:</h1>
 <%= form_tag session_path, :method => :post do %>
-  <%= label_tag :email %>
-  <%= text_field_tag :email %>
-
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-
+  <p><%= text_field_tag :email, nil, :placeholder => "Email" %></p>
+  <p><%= password_field_tag :password, nil, :placeholder => "Password" %></p>
   <%= submit_tag "Login" %>
 <% end %>
-
-<%= link_to "Home", new_user_path %>
+</div>

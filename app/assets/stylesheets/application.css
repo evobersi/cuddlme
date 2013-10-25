@@ -11,3 +11,59 @@
  *= require_self
  *= require_tree .
  */
+
+ body {
+  background-color: #DDD;
+  font-family: Helvetica;
+  padding-left: 10px;
+ }
+
+ span.period {
+  color: red;
+ }
+
+ footer {
+  margin-top: 20px;
+  position: relative;
+  bottom: 10px;
+  font-size: 12px;
+ }
+
+ div.user-show {
+  font-size: 30px;
+  width: 50%;
+  margin: 10% auto;
+   }
+
+  a.dog-links:link {
+   font-size: 1.8em;
+   padding: 10px 0;
+  }
+
+  .dogs, .play {
+  font-size: 3em;
+  padding: 0 10px;
+  margin: 0 auto;
+  text-decoration: none;
+  }
+
+  .dogs:hover{
+    font-size: 1.5em;
+  }
+
+ span.separator{
+  font-size: .9em;
+ }
+ .parks{
+ font-size: 1em;
+ text-decoration: none;
+ line-height: 1.5em;
+ }
+ .parks:hover{
+  font-size: 1.7em;
+ }
+
+.nearby:hover{
+  font-size 1.5em;
+}
+

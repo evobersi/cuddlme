@@ -1,25 +1,23 @@
-<div class = "row">
   <% unless @user.errors.none? %>
   <% @user.errors.full_messages.each do |msg| %>
     <%= msg %>
   <% end %>
 <% end %>
 
+
 <%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+  <p><%= f.email_field :email, :placeholder => "Username or Email"%></p>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
+  <p><%= f.password_field :password, :placeholder => "Password" %></p>
+  
+  <p><%= f.password_field :password_confirmation, :placeholder => "Password" %></p>
  
-  <%= f.label :zipcode %>
-  <%= f.text_field :zipcode %>
+  <p><%= f.text_field :zipcode, :placeholder => "Zip Code" %></p>
 
-  <%= f.hidden_field :id, value: "#{session[:user_id]}" %>
+  <p><%= f.hidden_field :id, value: "#{session[:user_id]}" %></p>
 
-  <%= f.submit %>
+  <p class = "submit"> <%= f.submit %> </p>
+
 <% end %>
-</div> 
+

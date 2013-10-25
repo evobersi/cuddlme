@@ -1,1 +1,7 @@
-Hello.
+ <h1>Member Area</h1>
+<p><i>Click on a member to learn more.</p></i>
+  <% @users.each do |user| %> <br>  
+  <%= link_to user.email, user_path(user) %> 
+  <% end %>
+
+

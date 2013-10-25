@@ -1,14 +1,10 @@
-<h1>My Dogs: </h1>
-<ul><% @user = User.find(current_user) %></ul> 
-<li><% @user.dogs.each do |dog| %></li>
-<li><%=  dog.name %> 
-  <br>
-  <%= link_to "Take to park", parks_path %>
+<% @user = User.find(current_user) %> 
+<h1><%= @user.email %>'s dogs: </h1>
+<% @user.dogs.each do |dog| %><br>
+<p><%= link_to dog.name, dog_path(dog), class: "dogs" %></p> 
+  <% end %>
+
+  <p><%= link_to "Go Play!", parks_path, class: "play"%></p>
  </li>
-<% end %>
 
-
-<%= link_to "All dogs", dogs_path %>
-<%= link_to "Add a dog", new_dog_path%>
-<%= link_to "Sign out", session_path, :method => :delete %>
 

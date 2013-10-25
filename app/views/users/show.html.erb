@@ -1,11 +1,7 @@
-<h1>Start Cuddl'n.</h1>
 
+<%= link_to "Dog Directory", dogs_path %>
+<div class="user-show">
+<h1>Hello, </h1>
 
-<%= link_to "All dogs", dogs_path %>
-<%= link_to "Add a dog", new_dog_path%>
-<%= link_to "Edit", edit_user_path(current_user) %> |
-<%= link_to "Sign out", session_path, :method => :delete %>
-<%= link_to "Show your dogs", user_dogs_path(current_user) %>
-
-
-
+<h1><%= link_to "Start Cuddl'n", new_dog_path %>  </h1> 
+</div> 

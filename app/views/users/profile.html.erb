@@ -1,22 +1,9 @@
-<h1>Wanna Cuddl? </h1>
-<h2>User Profile: </h2>
- <h3><%= @user.email %></h3>
-<ul>
-  <li>Zipcode: <%= @user.zipcode %></li>
-</ul>
+<%= link_to "Back", users_path %>
+<%= link_to "Park Directory", parks_path %>
 
-<h3>Dogs: </h3>
-<ul>
-  <% @user.dogs.each do |dog| %>
-  <li>Name: <%=  dog.name %></li>
-  <li>Breed: <%= dog.breed %></li>
-  <li>Gender: <%= dog.gender %></li>
-  <li>Likes: <%= dog.preference %></li>
+<h2>This is <%= @user.email %>, owner of </h2> 
+<% @user.dogs.each do |dog| %> 
+<%= link_to dog.name, dog_path(dog) %>, a <%= dog.gender %> <%= dog.breed %> who likes to play with <%= dog.preference %> dogs.</li> 
 <% end %>
 </ul>
-
-<h3>Parks Visited:</h3>
-
-
-
 

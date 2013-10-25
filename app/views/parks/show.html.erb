@@ -1,14 +1,24 @@
-<h1><%= @park.name %> (<%= @park.distance_to("#{@user.zipcode}").round(2) %> miles away)</h1>
-<span> Borough: <%= @park.borough %></span>
+<%= link_to "Park Directory", parks_path %>
+<%= link_to "All Dogs", dogs_path %>
+<%= link_to "All Users", users_path %>
+
+
+<h1><%= @park.name %>, <%= @park.borough %>, (<%= @park.distance_to("#{@user.zipcode}").round(2) %> miles away)</h1>
 <p> <%= @park.address %></p>
-<br>
-<h1>Create a playdate</h1>
 
-<h4> Parks in the area: </h4>
-<ul> 
+<h4> Parks nearby: </h4>
 <% @park.nearbys(1).each do |park| %>
-  <li><%= link_to park.name, park_path(park) %></li>
-  <% end %>
-</ul>
+<%= link_to park.name, park_path(park) %>
+<% end %>
 
-<%= link_to "Back to parks", parks_path %>
+  <br>
+  <% @park.users.each do |user| %>
+    <% user.dogs.each do |d| %> 
+    <p><%= link_to d.name, dog_path(d) %> plays here.</p>
+        <% end %>
+  <% end %>
+  <br>
+  <br>
+
+  <%= button_to "Join this Park!", park_users_path(@park), :method => :post, class: "join" %> 
+

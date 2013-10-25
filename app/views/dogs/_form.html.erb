@@ -12,10 +12,9 @@
   <li><%= f.select :age, options_for_select((1..15).to_a, 1) %></li>
 
   <li><%= f.label :preference %></li>
-  <li><%= f.select :preference, options_for_select(["male","female"], "female") %></li>
+  <li><%= f.select :preference, options_for_select(["male","female"], "females") %></li>
 
-  <li><%= f.submit %></li>
-
+  <p class="submit"><%= f.submit %></p>
 <% end %>
 <br>
 

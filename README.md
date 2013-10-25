@@ -1,70 +1,25 @@
-<<<<<<< HEAD
-  *** Cuddl'r *** 
-  
-  What problem are you trying to solve?
-  
-  Cuddl'r allows (pure bred) dog owners to set up play dates and meet prospective breeding mates for their dogs in parks around New York City. 
+# READ ME: Cuddl.Me  
+Making Fetch Happen Since 2013.
+***
 
-  What will your app do / what features will it have?
-  
-  * a dog database with their pertinent information
-  * a members only section to set up dates and view profiles
-  * a search option to find dogs by breed, age range, spayed/neutered (yes/no) and by zip code
-  * the options to send, accept and/or deny a play date request
-  
+### What It Is
 
-  What do you think you can reasonably implement in 1 week?
-  * create seed files for dogs with their name, breed, age range, sex, spayed/neutered boolean, zip code
-  * create a CRUD app with models for dogs, dates and locations and their associations
-    - class Dog has_many :dates
-    - class Dates belongs_to :dog
-    - class Location has_many :dogs
-  * create a members only section where users can communicate, search other members, view profiles and request a date.
-  * use Google Maps API to locate the dog parks on a map.
-  * use NY Open Data .XML file to list all of the dog parks.
-  * "prettify" with visuals, HTML and CSS 
+Cuddl.Me is a web app that lets dog owners join play dates for their furry friends in parks around New York City. 
 
-  What APIs or other resources might you use / do you plan on using?
+It is also an opportunity for users to explore the many parks/off-leash spaces in New York City based on distance and user favorites. 
 
-  * Google Maps API
-  *Directory of Dog Runs and Off-Leash Areas
-  Dog runs in New York City Department of Parks & Recreation properties and properties with off-leash hours for dogs.
-  http://www.nycgovparks.org/bigapps/DPR_DogRuns_001.xml
-  * 
+### How I Made It
 
-  ---- 
+This full rails app uses geolocational data from the GeoCoder API and open source data from <https://nycopendata.socrata.com/> to create a social network where members can set up dates for their dogs based on gender, age, breed and favorite parks.
 
-  Object Models:
+It is my first project as part of the Web Development Immersive program at General Assembly. 
 
-  https://www.gliffy.com/go/html5/5004337?app=1b5094b0-6042-11e2-bcfd-0800200c9a66
+### How It Looks
 
-  ----
+<http://cuddlme.herokuapp.com/>
 
-  User Stories:
+### Contact Me
 
-  As a Creator, I want users to interact with eachother online so they can meet in person.
-  As a Creator, I would like to bring pure bred dog owners together to so that they can breed. 
-  As a User, I want an easy and fun way to search for and contact dog owners so I don't have to find them myself. 
-  As a User, I want to search by keyword for dogs that are relevant to me so that I can save time searching through the database. 
-  As a User, I would like to see which five parks are closest to my zipcode so that I can plan a date.
-
-  
-  ----
-
-  Resources:
-  * Google Maps API
-  * http://www.nycgovparks.org/bigapps/DPR_DogRuns_001.xml
+<b>EVO</b> | e_vo@hush.com | Twitter: <b>@MadeInCuracao</b>
 
 
-  Wireframe:
-
-  https://wireframe.cc/HW6GvC
-
-
-
-=======
-cuddlme
-=======
-
-Project 1 
->>>>>>> 4b066d72bd2ca069382a70fdeb406c3456d18cdd

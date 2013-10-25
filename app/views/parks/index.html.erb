@@ -1,9 +1,9 @@
+<%= link_to "All Dogs", dogs_path %>
+
 <h1>Which park would you like to visit?</h1>
-<% @parks.each do |p| %> 
-  <li><%= link_to p.name, park_path(p) %></li>
+<% @parks.each do |p| %>
+  <%= link_to p.name, park_path(p), class: "parks" %>
+  <span class="separator"> | </span>
   <% end %>
 
-
-<%= link_to "New Park", new_park_path %>
-<%= link_to "All dogs", dogs_path %>
 

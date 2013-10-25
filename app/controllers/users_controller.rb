@@ -3,7 +3,13 @@ class UsersController < ApplicationController
   before_action :authenticated!, :set_user, :authorized!, only: [:destroy, :edit, :update]
   before_action :authenticated!, :set_user, only: [:show]
 
+  def root
+    render :new
+  end
+
   def index
+    @users = User.all
+    render :index
   end
 
   def new
@@ -31,9 +37,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user = current_user
   end
 
   def update
+    @user = current_user
     if @user.update_attributes(user_params)
       redirect_to user_path(@user)
     else
@@ -64,7 +72,8 @@ class UsersController < ApplicationController
   end
 
   def authorized!
-    unless @user.id == session[:user_id]
+
+    unless current_user.id == session[:user_id]
       redirect_to user_path(session[:user_id])
     end
   end

@@ -1,27 +1,24 @@
-<h1>Create your doggy profile:</h1>
-
-<%= form_for @dog do |f| %>
-  <li><%= f.label :name %><li>
-  <li><%= f.text_field :name %></li>
-
-  <li><%= f.label :breed %></li>
-  <li><%= f.text_field :breed %></li>
-
-  <li><%= f.label :gender %></li>
-  <li><%= f.select :gender, options_for_select(["male","female"], "male") %></li>
-
-  <li><%= f.label :age %></li>
-  <li><%= f.select :age, options_for_select((1..15).to_a, 1) %></li>
-
-  <li><%= f.label :preference %></li>
-  <li><%= f.select :preference, options_for_select(["male","female"], "female") %></li>
-
-  <li><%= f.submit %></li>
-
-<% end %>
-
-
 <%= link_to "View all dogs", dogs_path %>
 <%= link_to "Home", user_path(@current_user) %>
 
  
+<h1>Create your doggy profile:</h1>
+<ul>
+<%= form_for @dog do |f| %>
+  <p><%= f.text_field :name, :placeholder => "Name" %></p>
+
+  <p><%= f.text_field :breed, :placeholder => "Breed" %></p>
+
+   <%= f.label :gender %>:
+  <%= f.select :gender, options_for_select(["male","female"], "male") %>
+ 
+ <p><%= f.label :age %>
+  <%= f.select :age, options_for_select((1..15).to_a, 1) %></p>
+
+  <p><%= f.label :date_preference %>
+  <%= f.select :preference, options_for_select(["male","female"], "female") %></p>
+
+    <%= f.submit %>
+
+<% end %>
+
