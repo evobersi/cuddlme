@@ -7,7 +7,7 @@
 <p> <%= @park.address %></p>
 
 <h4> Parks nearby: </h4>
-<% @park.nearbys(1).each do |park| %>
+<p class = <% @park.nearbys(1).each do |park| %>
 <%= link_to park.name, park_path(park) %>
 <% end %>
 

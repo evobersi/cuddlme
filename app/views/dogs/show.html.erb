@@ -7,11 +7,13 @@
 <i> Prefers playdates with <%= @dog.preference %> dogs. </i> 
 
 <h3>Favorite parks:</h3>
-<% @user = User.find(current_user) %>
+<% @user = @dog.user %>
 <% @user.parks.each do |p| %>
-<%= link_to p.name, park_path(p) %>
+  <%= link_to p.name, park_path(p) %>
 <% end %>
-
+<% if @user.parks.length < 1 %> 
+  <%= "#{@dog.name} has no favorite parks yet." %>
+<% end %>
 <br>
 
-<%= link_to "Join Parks", parks_path %>
+<%= link_to "Find another date", parks_path %>
