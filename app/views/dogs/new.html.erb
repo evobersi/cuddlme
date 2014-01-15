@@ -1,24 +1,35 @@
 <%= link_to "View all dogs", dogs_path %>
 <%= link_to "Home", user_path(@current_user) %>
 
- 
-<h1>Create your doggy profile:</h1>
-<ul>
-<%= form_for @dog do |f| %>
-  <p><%= f.text_field :name, :placeholder => "Name" %></p>
+ <div class="errors">
+ <%= @dog.errors.full_messages if @dog.errors.any? %>
+</div>
 
-  <p><%= f.text_field :breed, :placeholder => "Breed" %></p>
+<h4>Create your dog's profile:</h4>
+<div id="home-signup-form">
+  <div class="signup-row">
+<%= form_for @dog do |f| %>
+<div id="first-row"
+  <%= f.label :image %>
+  <%= f.file_field :avatar %>
+  
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+<div id="second-row"
+  <%= f.label :breed %>
+  <%= f.text_field :breed %>
 
    <%= f.label :gender %>:
   <%= f.select :gender, options_for_select(["male","female"], "male") %>
  
- <p><%= f.label :age %>
-  <%= f.select :age, options_for_select((1..15).to_a, 1) %></p>
-
-  <p><%= f.label :date_preference %>
-  <%= f.select :preference, options_for_select(["male","female"], "female") %></p>
-
-    <%= f.submit %>
-
+  <%= f.label :age %>
+  <%= f.select :age, options_for_select((1..15).to_a, 1) %>
+</div>
+  <div id="third-row">
+  <%= f.label :date_preference %>
+  <%= f.select :preference, options_for_select(["male","female"], "female") %>
+    <%= f.submit value = "Update Profile", data: { disable_with: "Please wait..." } %>
+  </div>
 <% end %>
-
+</div>

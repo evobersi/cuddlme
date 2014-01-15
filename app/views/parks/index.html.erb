@@ -1,9 +1,38 @@
-<%= link_to "All Dogs", dogs_path %>
-
-<h1>Which park would you like to visit?</h1>
-<% @parks.each do |p| %>
-  <%= link_to p.name, park_path(p), class: "parks" %>
-  <span class="separator"> | </span>
-  <% end %>
-
+<div id="container4">
+<div id="container3">
+<div id="container2">
+<div id="container1">
+<div id="col1">
+<p class="borough">Manhattan</p>
+<% @parks.where(borough: 'Manhattan').each do |park| %>
+<li class="parks"><%= link_to park.name, park_path(park), class: "parks" %></li>
+<% end %>
+</div>
+<div id="col2">
+<!-- Column two start -->
+<p class="borough">Brooklyn</p>
+<% @parks.where(borough: 'Brooklyn').each do |park| %>
+  <li class="parks"><%= link_to park.name, park_path(park), class: "parks" %></li>
+<% end %>
+</div>
+<div id="col3">
+<!-- Column three start -->
+<p class="borough">Queens</p>
+<% @parks.where(borough: 'Queens').each do |park| %>
+<li class="parks"><%= link_to park.name, park_path(park), class: "parks" %></li>
+<% end %>
+<!-- Column three end -->
+</div>
+<div id="col4">
+<p class="borough">Bronx</p>
+<div class="parks"><% @parks.where(borough: 'Bronx').each do |park| %>
+  <li class="parks"><%= link_to park.name, park_path(park), class: "parks" %></li>
+<% end %>
+</div>
+<!-- Column four end -->
+</div>
+</div>
+</div>
+</div>
+</div>
 

@@ -1,13 +1,12 @@
-<%= link_to "Home", user_path(current_user) %>
-<%= link_to "Add more dogs", new_dog_path %>
+<!-- <%= link_to "Home", user_path(current_user) %>
+<%= link_to "Add more dogs", new_dog_path %> --> 
 
-<h1>Doggy Directory:</h1>
-<p><em>Click on a dog to learn more.</em></p>
-
-  <% @dogs.each do |dog| %> <br>
-  <%= link_to dog.name, dog_path(dog), class: "dog-links"%>
-
+  <% @dogs.each do |dog| %>
+<ul class="user-links">
+    <li class="user-links">
+      <div class="user-name">
+      <%= link_to dog.name, dog_path(dog), class: "user-links"%><div class="dog-info"> , <%= dog.gender %> <%= dog.breed %></div><%= image_tag("dogheart.png", :class => "heart") %><br>
+  <%= image_tag dog.avatar.url(:thumb), class: "user-links" %></li>
+  </ul>
   <% end %>
-
-
 

@@ -1,24 +1,23 @@
-<%= link_to "Park Directory", parks_path %>
-<%= link_to "All Dogs", dogs_path %>
-<%= link_to "All Users", users_path %>
+<!-- <span><%= link_to "Back", parks_path %></span> 
+ -->
 
-
-<h1><%= @park.name %>, <%= @park.borough %>, (<%= @park.distance_to("#{@user.zipcode}").round(2) %> miles away)</h1>
-<p> <%= @park.address %></p>
-
-<h4> Parks nearby: </h4>
-<p class = <% @park.nearbys(1).each do |park| %>
+<div class="park-wrap">
+  <div class="park-image">
+<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@park.latitude}%2C#{@park.longitude}", class: "park" %>
+</div>
+  <div class="park-name">
+<h2 class="park_name"><%= @park.name %>, <%= @park.borough %>, (<%= @park.distance_to("#{@user.zipcode}").round(2) %> miles away)</div>
+</h2><p class="park-address"><%= @park.address %></p>
+<%= button_to "Join this Park!", park_users_path(@park), :method => :post, class: "join-button" %>
+  <h3>Recommended parks:</h3>
+<% @park.nearbys(1).each do |park| %>
 <%= link_to park.name, park_path(park) %>
 <% end %>
 
-  <br>
-  <% @park.users.each do |user| %>
-    <% user.dogs.each do |d| %> 
-    <p><%= link_to d.name, dog_path(d) %> plays here.</p>
-        <% end %>
-  <% end %>
-  <br>
-  <br>
-
-  <%= button_to "Join this Park!", park_users_path(@park), :method => :post, class: "join" %> 
-
+<% @park.users.each do |user| %>
+<% user.dogs.each do |d| %> 
+<p><%= link_to d.name, dog_path(d) %> plays here.</p>
+<% end %>
+<% end %>
+</div>
+</div>

@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authenticated!, :set_user, :authorized!, only: [:destroy, :edit, :update]
   before_action :authenticated!, :set_user, only: [:show]
 
@@ -19,7 +18,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
       log_in!(@user)
       redirect_to user_path(@user)
@@ -29,11 +27,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    if @user.id == session[:user_id] 
-      render :show 
-    else 
-      render :profile
-    end
+    render :profile
   end
 
   def edit
@@ -42,8 +36,9 @@ class UsersController < ApplicationController
 
   def update
     @user = current_user
-    if @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+      if @user.update_attributes(user_params)
+        @user.save!
+        redirect_to user_path, :alert  => "Successfully updated profile."
     else
       render :edit
     end
@@ -64,7 +59,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :zipcode)
+    params.require(:user).permit(:email, :password, :password_confirmation, :zipcode, :name, :tagline, :avatar)
   end
 
   def set_user
@@ -72,7 +67,6 @@ class UsersController < ApplicationController
   end
 
   def authorized!
-
     unless current_user.id == session[:user_id]
       redirect_to user_path(session[:user_id])
     end
