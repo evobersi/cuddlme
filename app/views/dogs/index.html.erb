@@ -1,6 +1,5 @@
 <!-- <%= link_to "Home", user_path(current_user) %>
 <%= link_to "Add more dogs", new_dog_path %> --> 
-
   <% @dogs.each do |dog| %>
 <ul class="user-links">
     <li class="user-links">
@@ -10,3 +9,4 @@
   </ul>
   <% end %>
 
+<%= will_paginate(@users) %>

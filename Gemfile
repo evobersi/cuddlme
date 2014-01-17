@@ -36,6 +36,15 @@ gem 'jbuilder', '~> 1.2'
 # Upload images with the Paperclip Gem by ThoughtBot
 gem "paperclip", "~> 3.0"
 
+# Will_Paginate automatically creates page numbers for you
+gem 'will_paginate', '~> 3.0.5'
+
+# Edit your forms in the same page.
+gem 'best_in_place', github: 'bernat/best_in_place'
+
+# Validates Email Address 
+gem 'validates_email_format_of', github: 'alexdunae/validates_email_format_of' 
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

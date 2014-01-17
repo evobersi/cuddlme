@@ -1,11 +1,15 @@
 class DogsController < ApplicationController
+WillPaginate.per_page = 9
+before_action :current_user
 
   def index
     @dogs = Dog.all
+    @dogs = Dog.paginate(:page => params[:page])
     render :index
   end
 
   def new
+    @current_user = current_user
     @dog = Dog.new
   end
 
@@ -16,6 +20,16 @@ class DogsController < ApplicationController
       redirect_to dogs_path
     else
       render :new
+    end
+  end
+
+  def update 
+    @user = current_user
+      if @dog.update_attributes(dog_params)
+        @dog.save!
+        redirect_to dog_path, :alert  => "Successfully updated profile."
+    else
+      render :edit
     end
   end
 

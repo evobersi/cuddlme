@@ -3,6 +3,7 @@
 <%= image_tag @user.avatar.url(:medium), :class => "user_profile" %>
 <div class="profile_name">
 <%= content_tag(:h2, @user.name, class: "user_profile") %> <%= content_tag(:span, @user.email, id: "1", class: "user_profile") %>
+<%= best_in_place @user, :name %>
 <span class="user_profile" id="2"> Is the proud owner of:
   <% @user.dogs.each do |dog| %> 
 <li class="user_profile>"><%= link_to dog.name, dog_path(dog), class: "dog-name" %>, a <%= dog.gender %> <%= dog.breed %> who likes to play with <%= dog.preference %> dogs.</li>

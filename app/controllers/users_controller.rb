@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
   before_action :authenticated!, :set_user, :authorized!, only: [:destroy, :edit, :update]
   before_action :authenticated!, :set_user, only: [:show]
-
+  WillPaginate.per_page = 9
+  respond_to :html, :json
   def root
     render :new
   end
 
   def index
     @users = User.all
+    @users = User.paginate(:page => params[:page])
     render :index
   end
 
@@ -20,27 +22,35 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in!(@user)
-      redirect_to user_path(@user)
+      redirect_to new_dog_path, notice: "Successfully created user!"
     else
       render :new
     end
   end
 
   def show
-    render :profile
+    @user = User.find params[:id]
+    respond_to do |format|
+      format.html
+      format.json {render :json => @user}
+    end
   end
 
   def edit
-    @user = current_user
+    @user = User.find(params[:id])
   end
 
   def update
-    @user = current_user
+  @user = User.find params[:id]
+
+    respond_to do |format|
       if @user.update_attributes(user_params)
-        @user.save!
-        redirect_to user_path, :alert  => "Successfully updated profile."
-    else
-      render :edit
+        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
+        format.json { respond_with_bip(@user) }
+      else
+        format.html { render :action => "edit" }
+        format.json { render :json => @user.errors.full_messages, :status => :unprocessable_entity }
+      end
     end
   end
 

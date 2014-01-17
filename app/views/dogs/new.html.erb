@@ -5,6 +5,7 @@
  <%= @dog.errors.full_messages if @dog.errors.any? %>
 </div>
 
+<h3>Welcome, <%= @current_user.name.capitalize %></h3>
 <h4>Create your dog's profile:</h4>
 <div id="home-signup-form">
   <div class="signup-row">
@@ -18,7 +19,7 @@
 </div>
 <div id="second-row"
   <%= f.label :breed %>
-  <%= f.text_field :breed %>
+  <%= f.select :breed, options_for_select(["Affenpinscher", "Afghan Hound", "Airedale Terrier", "Akita Inu", "Alaskan Malamute", "American Eskimo Dog", "American Foxhound", "American Staffordshire Terrier", "American Water Spaniel", "Anatolian Shepherd Dog", "Australian Cattle Dog", "Australian Shepherd", "Australian Terrier", "Basenji", "Basset Hound", "Beagle", "Bearded Collie", "Bedlington Terrier", "Belgian Malinois", "Belgian Sheepdog", "Belgian Tervuren", "Bernese Mountain Dog", "Bichon Frise", "Black and Tan Coonhound", "Black Russian Terrier", "Bloodhound", "Border Collie", "Border Terrier", "Borzoi", "Boston Terrier", "Bouvier des Flandres", "Boxer", "Briard", "Brittany", "Brussels Griffon", "Bull Terrier", "Bulldog", "Bullmastiff"]) %>
 
    <%= f.label :gender %>:
   <%= f.select :gender, options_for_select(["male","female"], "male") %>
@@ -33,3 +34,5 @@
   </div>
 <% end %>
 </div>
+
+
