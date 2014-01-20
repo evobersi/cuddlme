@@ -2,9 +2,9 @@
 <div class="user_profile">
 <%= image_tag @dog.avatar.url(:medium), :class => "dog_profile" %>
 <div class="profile_name">
-<h1 class="user_profile">About <%= @dog.name %></h1>
+<h1 class="user_profile">About <%= @dog.name.capitalize %></h1>
 <hr>
-<b><%= @dog.name %></b> is a <%= @dog.age %>-year old <%= @dog.gender %> <%= @dog.breed %> and belongs to <%= link_to @dog.user.email, user_path(@dog.user) =%>. <br>
+<b><%= @dog.name.capitalize %></b> is a <%= @dog.age %>-year old <%= @dog.gender %> <%= @dog.breed.capitalize %> and belongs to <%= link_to @dog.user.email, user_path(@dog.user) =%>. <br>
 Prefers playdates with <%= @dog.preference %> dogs.
 </div>
 </div>
@@ -22,3 +22,6 @@ Prefers playdates with <%= @dog.preference %> dogs.
 </div>
 </div>
 </ul>
+
+<%= link_to "Edit Profile", edit_dog_path(@dog) %>
+

@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticated!, :set_user, only: [:show]
   WillPaginate.per_page = 9
   respond_to :html, :json
+
   def root
     render :new
   end
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find params[:id]
+    @user = User.find(params[:id])
     respond_to do |format|
       format.html
       format.json {render :json => @user}
@@ -37,21 +38,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
+    @user = current_user
   end
 
   def update
-  @user = User.find params[:id]
-
-    respond_to do |format|
-      if @user.update_attributes(user_params)
-        format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
-        format.json { respond_with_bip(@user) }
-      else
-        format.html { render :action => "edit" }
-        format.json { render :json => @user.errors.full_messages, :status => :unprocessable_entity }
-      end
-    end
+  @user = User.find(params[:id])
+  @user.update_attributes!(user_params)
+  respond_with @user
   end
 
   def destroy

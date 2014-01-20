@@ -1,6 +1,8 @@
 class DogsController < ApplicationController
 WillPaginate.per_page = 9
 before_action :current_user
+respond_to :html, :json
+
 
   def index
     @dogs = Dog.all
@@ -22,6 +24,23 @@ before_action :current_user
       render :new
     end
   end
+
+  def edit
+    @user = current_user
+    @dog = Dog.find(params[:id])
+  end
+
+
+def edit
+    @user = current_user
+  end
+
+  def update
+  @user = User.find(params[:id])
+  @user.update_attributes!(user_params)
+  respond_with @user
+  end
+
 
   def update 
     @user = current_user

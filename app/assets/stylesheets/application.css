@@ -422,7 +422,6 @@ li.park_section {
 .park-wrap {
   overflow: auto;
   position: relative;
-  margin: 10px;
   padding: 10px;
 }
 
@@ -444,10 +443,6 @@ img.dog_profile {
 
 p.park-address {
   margin: -10px;
-}
-
-.join-button {
-
 }
 
 h2.user_profile, span.user_profile, li.user_profile, h2.park_name {
